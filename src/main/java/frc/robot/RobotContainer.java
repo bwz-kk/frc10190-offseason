@@ -26,10 +26,11 @@ public class RobotContainer
   private final SendableChooser<Command> autoChooser = new SendableChooser<>();
 
   private final SwerveDriveSubsystem swerve               = new SwerveDriveSubsystem();
-  private final SwerveInputStream    driveAngularVelocity = swerve.getAngularVelocityStream(driverXbox::getLeftY,
-                                                                                            driverXbox::getLeftX,
-                                                                                            ()->driverXbox.getRawAxis(2))
-                                                                  .withAllianceRelativeControl();
+  private final SwerveInputStream driveAngularVelocity = swerve.getAngularVelocityStream(
+    driverXbox::getLeftY,
+    driverXbox::getLeftX,
+    driverXbox::getRightX   
+).withAllianceRelativeControl();
   public RobotContainer()
   {
     configureBindings();
